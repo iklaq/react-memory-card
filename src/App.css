@@ -1,0 +1,54 @@
+.header h1 {
+  color: aliceblue;
+  text-align: center;
+  margin-top: 0px;
+  font-size: 50px;
+  padding: 10px;
+  background-color: rgb(190, 154, 13);
+}
+
+.header h2 {
+  color: aliceblue;
+  text-align: center;
+  font-size: 40px;
+  margin: 10px;
+  color: rgb(226, 163, 194);
+}
+
+.header p {
+  color: aliceblue;
+  text-align: center;
+  font-size: 25px;
+  color: rgb(210, 228, 207);
+  margin: 0%;
+}
+
+.score-board {
+  background-color: rgb(44, 79, 50);
+  text-align: center;
+  margin-left: 30%;
+  margin-right: 30%;
+  margin-top: 40px;
+  margin-bottom: 40px;
+  padding: 10px;
+  justify-content: right;
+  color: azure;
+  border-radius: 10px;
+  box-shadow: 1px 1px rgb(236, 194, 7);
+}
+
+.score-board h2 {
+  color: rgb(236, 194, 7);
+}
+
+.game-board {
+  background-color: white;
+  margin: 50px;
+  padding: 38px;
+  padding-right: 2px;
+}
+
+.game-board img {
+  border: 5px solid black;
+  margin-right: 5px;
+}
