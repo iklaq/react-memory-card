@@ -18,8 +18,7 @@ const App = () => {
       setScore(score + 1);
 
       setCards(cards);
-    } 
-    else {
+    } else {
       alert("Game Over");
 
       if (score > highestScore) {
@@ -40,7 +39,7 @@ const App = () => {
         <p>Click on a unique card image everytime.</p>
       </div>
       <ScoreBoard score={score} highestScore={highestScore}></ScoreBoard>
-      
+
       <GameBoard cards={cards} handleCardClick={handleCardClick} />
     </div>
   );
