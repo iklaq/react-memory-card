@@ -10,26 +10,50 @@ const App = () => {
   const [highestScore, setHighestScore] = useState(0);
 
   const handleCardClick = (e) => {
-    const clickedCard = cards.find((item) => item.logoURL === e.target.id);
+    const clickedCard = cards.find((item) => item.id === Number(e.target.id));
 
     if (!clickedCard.clicked) {
-      clickedCard.clicked = true;
-
-      setScore(score + 1);
-
-      setCards(cards);
+      setScore(prevScore => prevScore + 1);
+      
+      setClickedStatus(Number(e.target.id));
     } else {
-      alert("Game Over");
-
-      if (score > highestScore) {
-        setHighestScore(score);
-      }
-
-      setScore(0);
-
-      setCards(cards.map((item) => ({ ...item, clicked: false })));
+      resetGame();
     }
   };
+
+  const setClickedStatus = (cardId) => {
+    const updatedCards = [...cards];
+    const clickedCardIndex = updatedCards.findIndex(card => card.id === cardId);
+    updatedCards[clickedCardIndex].clicked = true;
+    setCards(updatedCards);
+  }
+
+  const resetGame = () => {
+    alert("Game Over");
+
+    if (score > highestScore) {
+      setHighestScore(score);
+    }
+
+    setScore(0);
+    setCards(cards.map((item) => ({ ...item, clicked: false })));
+  };
+
+  const suffleCards = (cards) => {
+    for (
+      let currentIndex = cards.length - 1;
+      currentIndex > 0;
+      currentIndex--
+    ) {
+      const randomIndex = Math.floor(Math.random() * (currentIndex + 1));
+
+      [cards[currentIndex], cards[randomIndex]] = [
+        cards[randomIndex],
+        cards[currentIndex],
+      ];
+    }
+  };
+  suffleCards(cards);
 
   return (
     <div className="app">
